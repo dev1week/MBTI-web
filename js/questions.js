@@ -19,4 +19,19 @@ function renderQuestion() {
   progressValueEl.style.width = (currentNumber + 1) * 10 + "%";
 }
 
+function nextQuestion(choiceNum) {
+  const question = questions[currentNumber];
+  mbti += question.choices[choiceNum].value;
+  currentNumber += 1;
+  renderQuestion();
+}
+
+choice1El.addEventListener("click", function () {
+  nextQuestion(0);
+});
+
+choice2El.addEventListener("click", function () {
+  nextQuestion(1);
+});
+
 renderQuestion();
